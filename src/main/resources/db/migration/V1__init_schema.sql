@@ -23,20 +23,6 @@ create table work_item_labels (
                                   work_item_id bigint,
                                   label_id bigint,
                                   foreign key (work_item_id) references work_items(id) on delete cascade,
-                                  foreign key (label_id) references labels(id) on delete cascade
+                                  foreign key (label_id) references labels(id) on delete cascade,
+                                  primary key (work_item_id, label_id)
 );
-
-create table roles (
-                       id bigserial primary key,
-                       name varchar not null
-);
-
-create table accounts_roles (
-                                account_id bigint not null references accounts(id) on delete cascade,
-                                role_id bigint not null references roles(id) on delete cascade,
-                                primary key (account_id, role_id)
-);
-
-insert into roles (name) values
-                             ('ROLE_USER'),
-                             ('ROLE_ADMIN');
