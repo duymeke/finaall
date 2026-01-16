@@ -14,7 +14,6 @@ public interface WorkItemMapper {
     WorkItemDto toDto(WorkItem workItem);
 
     @Mapping(target = "account", ignore = true)
-    @Mapping(target = "labels", ignore = true)
     WorkItem toEntity(WorkItemDto dto);
 
     List<WorkItemDto> toDtoList(List<WorkItem> workItems);
