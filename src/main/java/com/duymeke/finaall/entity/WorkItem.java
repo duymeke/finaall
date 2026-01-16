@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "work-items")
+@Table(name = "work_items")
 public class WorkItem {
 
     @Id
@@ -27,8 +27,8 @@ public class WorkItem {
 
     @ManyToMany
     @JoinTable(
-            name = "work-item_labels",
-            joinColumns = @JoinColumn(name = "work-item_id"),
+            name = "work_item_labels",
+            joinColumns = @JoinColumn(name = "work_item_id"),
             inverseJoinColumns = @JoinColumn(name = "label_id")
     )
     private List<Label> categories;
